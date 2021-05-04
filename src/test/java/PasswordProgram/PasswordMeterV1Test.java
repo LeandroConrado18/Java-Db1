@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PasswordMeterV1Test {
 
     @Test
-    void checkPassword() {
+    void check_score_and_complexity() {
 
         // Primeiro teste
         var meter = new PasswordMeterV1();
@@ -17,14 +17,17 @@ class PasswordMeterV1Test {
         assertEquals(expected_score, meter.score);
         assertEquals(expected_complexity, meter.sComplexity);
 
+    }
+    @Test
+    void check_number_characters_bonus(){
         // Segundo Teste
-        meter.checkPassword("Marlos_Zika");
-        var expected_score_2 = 44;
-        var expected_complexity_2 = "Good";
-        var expected_countLength = 11;
-        var expected_bonusLength = 44;
-        assertEquals(expected_score_2, meter.score);
-        assertEquals(expected_complexity_2, meter.sComplexity);
+        var meter = new PasswordMeterV1();
+        meter.checkPassword("MarlosEhZika");
+
+        var expected_countLength = 12;
+        var expected_bonusLength = 48;
+        System.out.println(meter.toString());
+
         assertEquals(expected_countLength, meter.countLength);
         assertEquals(expected_bonusLength, meter.bonusLength);
 
