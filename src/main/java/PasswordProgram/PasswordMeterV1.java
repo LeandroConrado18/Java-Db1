@@ -1,5 +1,6 @@
 package PasswordProgram;
 
+
 public class PasswordMeterV1 {
     public int score;
     public String password;
