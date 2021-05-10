@@ -4,7 +4,7 @@ public class PasswordMeterV2 {
 
 
     public static void main(String[] args) {
-        String password = "Leandro12@";
+        String password = "Leeeeeeeeeeandro12@";
         String sComplexity;
 
 
@@ -18,8 +18,8 @@ public class PasswordMeterV2 {
         int bonusMidChar, countMidChar;
         int bonusRequirements, countRequirements;
 
-        int bonusAlphasOnly, countAlphasOnly;
-        int countNumbersOnly, bonusNumbersOnly;
+        int bonusLetterOnly, countLetterOnly;
+        int bonusNumbersOnly,countNumbersOnly;
         int countRepChar, bonusRepChar;
         int countConsecutiveAlphaUC, bonusConsecutiveAlphaUC;
         int countConsecutiveAlphaLC, bonusConsecutiveAlphaLC;
@@ -38,20 +38,26 @@ public class PasswordMeterV2 {
         bonusNumber = new NumberOfNumbers(password).calculateBonus();
         bonusSymbol = new NumberOfSymbols(password).calculateBonus();
         bonusMidChar = new NumberOfMidChar(password).calculateBonus();
+        bonusRepChar = new NumberOfRepeatCharacters(password).calculateBonus();
+
+        // deductions
+        bonusNumbersOnly = new NumbersOfNumbersOnly(password).calculateBonus();
+        bonusLetterOnly = new NumberOfLettersOnly(password).calculateBonus();
+
 
 
 
 
         //pass this string with all bonus value
         int[] allBonus = new int[]{bonusNumberOfCharacters, bonusLowerCaseLetters, bonusUpperCaseLetters,
-                bonusNumber,bonusSymbol,bonusMidChar };
+                bonusNumber,bonusSymbol,bonusMidChar, bonusNumbersOnly, bonusLetterOnly,bonusRepChar };
 
+        for(int i=0;i<9;i++){
+            System.out.println(allBonus[i]);
+        }
 
         score = new Score(allBonus).calculateScore();
         System.out.println(score);
-
-
-        // deductions
 
 
         // passing all counts
@@ -61,6 +67,10 @@ public class PasswordMeterV2 {
         countNumber = new NumberOfNumbers(password).calculateOccurrence();
         countSymbol = new NumberOfSymbols(password).calculateOccurrence();
         countMidChar = new NumberOfMidChar(password).calculateOccurrence();
+        countNumbersOnly = new NumbersOfNumbersOnly(password).calculateOccurrence();
+        countLetterOnly = new NumberOfLettersOnly(password).calculateOccurrence();
+        countRepChar = new NumberOfRepeatCharacters(password).calculateOccurrence();
+
     }
 
 
