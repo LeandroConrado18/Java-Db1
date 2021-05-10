@@ -26,7 +26,6 @@ class PasswordMeterV1Test {
 
         var expected_countLength = 12;
         var expected_bonusLength = 48;
-        System.out.println(meter.toString());
 
         assertEquals(expected_countLength, meter.countLength);
         assertEquals(expected_bonusLength, meter.bonusLength);
