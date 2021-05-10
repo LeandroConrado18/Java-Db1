@@ -17,7 +17,7 @@ public class PasswordMeterV2 {
         int bonusSymbol, countSymbol;
         int bonusMidChar, countMidChar;
         int bonusRequirements, countRequirements;
-
+        // work in progress...
         int bonusLetterOnly, countLetterOnly;
         int bonusNumbersOnly,countNumbersOnly;
         int countRepChar, bonusRepChar;
@@ -52,9 +52,9 @@ public class PasswordMeterV2 {
         int[] allBonus = new int[]{bonusNumberOfCharacters, bonusLowerCaseLetters, bonusUpperCaseLetters,
                 bonusNumber,bonusSymbol,bonusMidChar, bonusNumbersOnly, bonusLetterOnly,bonusRepChar };
 
-        for(int i=0;i<9;i++){
+        /*for(int i=0;i<9;i++){
             System.out.println(allBonus[i]);
-        }
+        }*/
 
         score = new Score(allBonus).calculateScore();
         System.out.println(score);
